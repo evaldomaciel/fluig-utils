@@ -15,7 +15,7 @@ function anexo(event) {
     try {
         const acao = event.currentTarget.getAttribute("data-acao");
         const inputFile = $(event.currentTarget).parent().parent().find(".inputAnexo")[0]
-        const fileDescription = $(event.currentTarget).parent().parent().find(".descAnexo").val()
+        const fileDescription = $('.description-column', parent.document).text();
         if (acao == "upload") {
             uploadFile(fileDescription, inputFile.id)
         }
@@ -67,10 +67,10 @@ function uploadFile(fileDescription, idInput) {
                     }
                 }
             }
-        }else{
-			JSInterface.showCamera(fileDescription);
-			setFilePhisicalName(idInput, fileDescription)
-		}
+        } else {
+            JSInterface.showCamera(fileDescription);
+            setFilePhisicalName(idInput, fileDescription)
+        }
     } catch (e) {
         console.error("Houve um erro inesperado na função uploadFile")
         console.error(e)
